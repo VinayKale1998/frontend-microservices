@@ -13,7 +13,7 @@ function PostCreate() {
   const submitHandler = async (event) => {
     event.preventDefault();
 
-    if (title.length < 5 && title.length > 20)
+    if (title.length < 5 && title.length > 40 )
       window.alert("Please enter a valid title between 5 and 20 chars");
 
     try {
@@ -42,7 +42,7 @@ function PostCreate() {
             className={`"outline-none border border-1 border-black rounded-sm w-44 ${styles.pmnormal} `}
             type="text"
             onChange={titleHandler}
-            maxLength={30}
+            maxLength={40}
             minLength={5}
             value={title}
           ></input>
@@ -50,7 +50,7 @@ function PostCreate() {
 
         <button
           className={`bg-red-300 w-40 rounded-md disabled:bg-opacity-[0.5] ${styles.pmnormal} `}
-          disabled={!(title.length > 5 && title.length < 20)}
+          disabled={!(title.length > 5 && title.length < 40)}
         >
           Create
         </button>
