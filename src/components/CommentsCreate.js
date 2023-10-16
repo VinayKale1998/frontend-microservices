@@ -10,6 +10,7 @@ function CommentsCreate({ postId }) {
   };
 
   const submitHandler = async (event) => {
+    console.log(comment)
     event.preventDefault();
     try {
       let response = await axios.post(
