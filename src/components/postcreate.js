@@ -13,13 +13,14 @@ function PostCreate() {
   const submitHandler = async (event) => {
     event.preventDefault();
 
-    if (title.length < 3 && title.length > 40 )
+    if (title.length < 3 && title.length > 40)
       window.alert("Please enter a valid title between 5 and 20 chars");
 
     try {
-      let res = await axios.post("http://localhost:3001/posts", {
+      let res = await axios.post("http://localhost:4001/posts", {
         title,
       });
+      console.log(res.data);
       setResponse(res.data);
 
       setTitle("");
@@ -34,9 +35,7 @@ function PostCreate() {
           <label
             htmlFor="Title"
             className={`${styles.pmnormal} ${styles.textnormal}`}
-          >
-            Title
-          </label>
+          ></label>
           <input
             name="Title"
             className={`"outline-none border border-1 border-black rounded-sm w-44 ${styles.pmnormal} `}

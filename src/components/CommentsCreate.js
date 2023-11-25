@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import styles from "../utils/styles";
 
-function CommentsCreate({ postId }) {
+function CommentsCreate({ id }) {
   const [comment, setComment] = useState("");
 
   const commentHandler = (event) => {
@@ -10,16 +10,16 @@ function CommentsCreate({ postId }) {
   };
 
   const submitHandler = async (event) => {
-    console.log(comment)
+    console.log(comment);
     event.preventDefault();
     try {
       let response = await axios.post(
-        `http://localhost:3002/posts/${postId}/comments`,
+        `http://localhost:4002/posts/${id}/comments`,
         {
           content: comment,
         }
       );
-      console.log(response)
+      console.log(response);
     } catch (err) {
       console.log(err.message);
     }
